@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logic Engine Test Bench</title>
+    <style>
+        body { font-family: 'Consolas', monospace; background: #1e1e1e; color: #d4d4d4; padding: 20px; line-height: 1.4; }
+        .scenario { background: #252526; padding: 20px; border: 1px solid #333; margin-bottom: 30px; border-radius: 8px; }
+        h2 { color: #9cdcfe; margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .section-title { color: #ce9178; font-weight: bold; margin-bottom: 5px; display: block; }
+        .row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px dashed #333; }
+        .row:last-child { border-bottom: none; }
+        .val { color: #b5cea8; }
+        .warning { color: #dcdcaa; }
+        
+        .recon-box { margin-top: 15px; padding: 10px; border-radius: 4px; font-weight: bold; text-align: center; }
+        .recon-pass { background: #1e3a1e; color: #6a9955; border: 1px solid #6a9955; }
+        .recon-fail { background: #3a1e1e; color: #f48771; border: 1px solid #f48771; }
+
+        .bill-list { font-size: 0.9em; color: #888; padding-left: 10px; }
+        .bill-row { display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Logic Engine Test Bench</h1>
+    <div id="status">Loading Modules...</div>
+    <div id="output"></div>
+
+    <script type="module">
+        import { calculateBudget } from '../js/calc.js';
+
+        const fmt = (num) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
+
+        function renderScenario(title, user, result) {
+            const r = result.reconciliation;
+            const reconClass = r.balanced ? 'recon-pass' : 'recon-fail';
+            const reconText = r.balanced ? `✅ BALANCED` : `❌ UNBALANCED`;
+
+            // Build Bill List HTML
+            let billsHtml = result.spending.bill_breakdown.map(b => `
+                <div class="bill-row">
+                    <span>${b.name} ${b.freq ? `(${b.freq})` : ''}</span>
+                    <span>${fmt(b.monthly_cost)}</span>
+                </div>
+            `).join('');
+
+            return `
+            <div class="scenario">
+                <h2>${title}</h2>
+                <div class="grid">
+                    <div>
+                        <span class="section-title">INCOME</span>
+                        <div class="row"><span>Gross Monthly</span> <span class="val">${fmt(result.income.gross_monthly)}</span></div>
+                        <div class="row"><span>Net Monthly</span> <span class="val">${fmt(result.income.net_monthly)}</span></div>
+                        
+                        <br>
+                        <span class="section-title">TAXES (${fmt(result.taxes.monthly_total)})</span>
+                        <div class="row"><span>Federal</span> <span class="val">${fmt(result.taxes.breakdown.federal)}</span></div>
+                        <div class="row"><span>FICA</span> <span class="val">${fmt(result.taxes.breakdown.fica)}</span></div>
+                        <div class="row"><span>State</span> <span class="val">${fmt(result.taxes.breakdown.state)}</span></div>
+                    </div>
+                    <div>
+                        <span class="section-title">SPENDING</span>
+                        <div class="row"><span>Housing</span> <span class="val">${fmt(result.spending.housing)}</span></div>
+                        <div class="row"><span>Bills (Fixed)</span> <span class="val">${fmt(result.spending.total_fixed)}</span></div>
+                        <div class="bill-list">${billsHtml}</div>
+                        <br>
+                        <div class="row" style="font-size:1.2em; border-top:1px solid #555; padding-top:5px;">
+                            <span style="color:#ce9178">DISCRETIONARY</span> 
+                            <span class="val" style="color:#4ec9b0">${fmt(result.spending.discretionary)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recon-box ${reconClass}">
+                    ${reconText}: Inputs (${fmt(r.gross_input)}) == Outputs (${fmt(r.total_calculated)})
+                </div>
+            </div>`;
+        }
+
+        async function runTests() {
+            const status = document.getElementById('status');
+            const output = document.getElementById('output');
+
+            try {
+                const taxReq = await fetch('../data/tax_tables.json');
+                const taxData = await taxReq.json();
+                const geoReq = await fetch('../data/geo_stats.json');
+                const geoData = await geoReq.json();
+
+                status.style.display = 'none';
+
+                // --- TEST 1 ---
+                const user1 = {
+                    income: 75000, income_frequency: 'annual', filing_status: 'single', state: 'TX',
+                    housing_cost: 1400, medical_premium: 150, medical_oop_max: 5000,
+                    bills: [
+                        { name: "Car Ins", amount: 600, frequency: "biannual" },
+                        { name: "Netflix", amount: 15.99, frequency: "monthly" }
+                    ]
+                };
+                output.innerHTML += renderScenario("Scenario 1: Single Texan ($75k/yr)", user1, calculateBudget(user1, taxData, geoData));
+
+                // --- TEST 2 ---
+                const user2 = {
+                    income: 4000, income_frequency: 'biweekly', filing_status: 'single', state: 'CA',
+                    housing_cost: 2800, medical_premium: 200, medical_oop_max: 3000,
+                    bills: []
+                };
+                output.innerHTML += renderScenario("Scenario 2: CA High Earner (Bi-Weekly)", user2, calculateBudget(user2, taxData, geoData));
+
+            } catch (err) {
+                status.innerText = "❌ ERROR: " + err.toString();
+                console.error(err);
+            }
+        }
+
+        runTests();
+    </script>
+</body>
+</html>

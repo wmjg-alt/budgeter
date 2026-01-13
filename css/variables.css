@@ -1,0 +1,28 @@
+:root {
+    /* Tell the browser/OS to use Dark Mode controls (scrollbars, dropdowns) */
+    color-scheme: dark; 
+
+    --bg-dark: #0f1115;
+    --bg-panel: #181b21;
+    --bg-input: #232730;
+    
+    /* Category Colors */
+    --c-tax: #f59e0b;
+    --c-housing: #3b82f6;
+    --c-health: #ef4444;
+    --c-food: #10b981;
+    --c-util: #06b6d4;
+    --c-bill: #8b5cf6;
+    --c-debt: #ec4899;
+    --c-pretax: #1e1196ec; 
+    --c-leftover: #333333;
+
+    /* UI State */
+    --accent-success: #10b981; 
+    --accent-warn: #ef4444;    
+    --text-main: #e2e8f091;
+    --text-muted: #788eac;
+    
+    --font-ui: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}

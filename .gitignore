@@ -1,0 +1,15 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+
+# Raw Data (Ignore the big CSVs, but keep the folder info)
+raw_data/*
+!raw_data/.gitkeep
+
+# System files
+Thumbs.db

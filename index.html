@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgeterOS</title>
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- DATALIST FOR AUTO-COMPLETE -->
+    <datalist id="known-bills"></datalist>
+
+    <!-- ZONE 1: CONTROL DECK -->
+    <header class="control-deck">
+        <!-- WRAPPER: Stacks Logo and Actions -->
+        <div class="brand-col">
+            <div class="logo-area">
+                <h1>BUDGET<span class="highlight">OS</span></h1>
+            </div>
+            
+            <!-- ACTIONS (Moved Under Logo) -->
+            <div class="action-row">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="btn-remember">
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-label">Save</span>
+                </label>
+                <button id="btn-export" class="btn-secondary">Export</button>
+            </div>
+        </div>
+
+        <div class="input-strip">
+            <div class="input-card">
+                <label>Gross Income</label>
+                <div class="input-group">
+                    <span class="currency">$</span>
+                    <input type="number" id="in-income" value="65000">
+                </div>
+                <div id="in-freq"></div> 
+            </div>
+
+            <!-- Location -->
+            <div class="input-card">
+                <label>Location</label>
+                <select id="in-state"><option value="US">National</option></select>
+            </div>
+
+            <!-- Filing -->
+            <div class="input-card">
+                <label>Filing</label>
+                <select id="in-filing">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                </select>
+            </div>
+
+            <!-- Housing -->
+            <div class="input-card" id="card-housing">
+                <div class="med-labels">
+                    <label>HOUSING</label>
+                    <select id="in-housing-type">
+                        <option value="rent">Rent</option>
+                        <option value="own">Mortgage</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="currency">$</span>
+                    <input type="number" id="in-housing" placeholder="0">
+                </div>
+                <div id="in-housing-freq" style="margin-top:5px;"></div> 
+            </div>
+
+            <!-- Medical -->
+            <div class="input-card" id="card-health">
+                <label style="margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px;">Health Ins.</label>
+                <div class="med-stack">
+                    <div class="med-row">
+                        <div style="display:flex; justify-content:space-between;">
+                            <label>Out-of-Pocket Max</label>
+                            <span style="font-size:0.6rem; color:#444;">(Annual)</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="in-med-oop" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="med-row">
+                        <label>Premium</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="in-med-prem" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div id="in-med-freq" style="margin-top:8px;"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-grid">
+        <!-- (KEEP YOUR EXISTING MAIN CONTENT) -->
+        <!-- ZONE 2: RECURRING COSTS -->
+        <section class="panel ledger-panel">
+            <div class="panel-header">
+                <h2>Recurring Costs</h2>
+                <button id="btn-add-bill" class="btn-small">+ Add</button>
+            </div>
+            <div class="bill-table-container">
+                <table id="bill-table">
+                    <thead>
+                        <tr>
+                            <th style="width:35%">Category/Name</th>
+                            <th style="width:30%">Amount</th>
+                            <th style="width:25%">Frequency</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bill-list"></tbody>
+                </table>
+            </div>
+            <div class="ledger-summary">
+                <span>Total Recurring (Monthly):</span>
+                <span id="out-total-fixed" class="mono-val">$0.00</span>
+            </div>
+        </section>
+
+        <!-- ZONE 3: HUD -->
+        <section class="panel hud-panel">
+            <div class="hero-metric">
+                <label>MONTHLY DISCRETIONARY</label>
+                <div id="out-discretionary" class="big-money">$0.00</div>
+                <div id="out-status-msg" class="hero-sub">Ready</div>
+            </div>
+            <div class="viz-wrapper">
+                <div class="viz-header">
+                    <span>COST BREAKDOWN</span>
+                    <span id="txt-gross">$0 Gross</span>
+                </div>
+                <div id="viz-container"></div> 
+            </div>
+            <div id="insight-box" class="insight-container"></div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        Cost comparisons based on Census/USDA/EIA/KFF public data. 
+        Tax estimates derived from Tax Foundation 2025 brackets & standard deductions.
+        BudgetOS runs locally in your browser.
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

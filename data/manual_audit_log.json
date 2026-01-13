@@ -1,0 +1,51 @@
+[
+  {
+    "timestamp": "2026-01-09 13:11:54.040183",
+    "scope": "National",
+    "key": "food_at_home",
+    "value": 3119.08,
+    "citation": "USDA foodexpenses_NATIONAL_USDAFoodExpenditure_2024"
+  },
+  {
+    "timestamp": "2026-01-09 13:11:58.660512",
+    "scope": "National",
+    "key": "food_away_from_home",
+    "value": 4470.04,
+    "citation": "USDA foodexpenses_NATIONAL_USDAFoodExpenditure_2024"
+  },
+  {
+    "timestamp": "2026-01-09 13:12:03.497659",
+    "scope": "National",
+    "key": "food_total",
+    "value": 7589.12,
+    "citation": "USDA foodexpenses_NATIONAL_USDAFoodExpenditure_2024"
+  },
+  {
+    "timestamp": "2026-01-09 13:12:15.900922",
+    "scope": "DC",
+    "key": "electricity",
+    "value": 170.0,
+    "citation": "energysage.com"
+  },
+  {
+    "timestamp": "2026-01-09 13:12:22.002428",
+    "scope": "DC",
+    "key": "water",
+    "value": 131.95,
+    "citation": "dcwater.com"
+  },
+  {
+    "timestamp": "2026-01-09 13:12:28.331604",
+    "scope": "DC",
+    "key": "natural_gas",
+    "value": 98.57,
+    "citation": "washingtonpost.com"
+  },
+  {
+    "timestamp": "2026-01-09 13:12:35.300495",
+    "scope": "DC",
+    "key": "garbage",
+    "value": 25.0,
+    "citation": "indexyard.com/"
+  }
+]

@@ -1,0 +1,187 @@
+{
+    "food_at_home": {
+        "file": "foodexpenses_USDAFoodExpenditure_2024.csv",
+        "file_type": "csv",
+        "state_col": "State",
+        "value_col": "Food-at-home per capita sales with taxes and tips (nominal U.S. dollars)",
+        "filter": {
+            "col": "Year",
+            "val": "2024"
+        },
+        "frequency": "a",
+        "year": "2024",
+        "source": "USDA Food Expenditure Series",
+        "description": "Food At Home (Groceries) - Single Person"
+    },
+    "food_away_from_home": {
+        "file": "foodexpenses_USDAFoodExpenditure_2024.csv",
+        "file_type": "csv",
+        "state_col": "State",
+        "value_col": "Food-away-from-home per capita sales with taxes and tips (nominal U.S. dollars)",
+        "filter": {
+            "col": "Year",
+            "val": "2024"
+        },
+        "frequency": "a",
+        "year": "2024",
+        "source": "USDA Food Expenditure Series",
+        "description": "Food Away From Home (Dining Out) - Single Person"
+    },
+    "food_total": {
+        "file": "foodexpenses_USDAFoodExpenditure_2024.csv",
+        "file_type": "csv",
+        "state_col": "State",
+        "value_col": "Total food per capita sales with taxes and tips (nominal U.S. dollars)",
+        "filter": {
+            "col": "Year",
+            "val": "2024"
+        },
+        "frequency": "a",
+        "year": "2024",
+        "source": "USDA Food Expenditure Series",
+        "description": "Total Food Expenditure - Single Person"
+    },
+    "housing_mortgage": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Mortgage",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "housing_rent": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Rent",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "electricity": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Electric",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "water": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Water and Sewer",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "car_insurance": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Auto Insurance",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "health_insurance": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Health Insurance",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "internet": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Cable and Internet",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "natural_gas": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Gas",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Rent (Household)"
+    },
+    "garbage": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Trash and Recycling",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Trash/Recycling Cost"
+    },
+    "life_insurance": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Life Insurance",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Life Insurance Expenditure"
+    },
+    "cell_phone": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Mobile Phone",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Cell Phone Bill"
+    },
+    "car_payment": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Auto Loan",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Car Payment Cost"
+    },
+    "home_security": {
+        "file": "billreport_doxoinsights_2025.csv",
+        "file_type": "csv",
+        "state_col": "STATE",
+        "value_col": "Alarm and Security",
+        "filter": null,
+        "frequency": "m",
+        "year": "2025",
+        "source": "doxo insights report",
+        "description": "Average Monthly Home Security Cost"
+    }
+}

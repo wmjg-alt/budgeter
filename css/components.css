@@ -1,0 +1,135 @@
+/* Tables & Lists */
+.bill-table-container { flex-grow: 1; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 0.75rem 1rem; color: var(--text-muted); font-size: 0.8rem; border-bottom: 1px solid #333; position: sticky; top: 0; background: var(--bg-panel); z-index: 10; }
+td { padding: 0.5rem 1rem; border-bottom: 1px solid #2a2a2a; }
+
+/* Row Highlighting (Bills) */
+.bill-row { border-left: 3px solid transparent; transition: background 0.2s; }
+.row-good { border-left-color: var(--accent-success); background: rgba(16, 185, 129, 0.05); }
+.row-warn { border-left-color: var(--accent-warn); background: rgba(239, 68, 68, 0.05); }
+
+/* Buttons */
+.btn-small { background: #333; border: none; color: white; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.btn-small:hover { background: #444; }
+.btn-del { color: var(--accent-warn); background: transparent; cursor: pointer; }
+
+/* --- CATEGORY SELECTORS (The Tags) --- */
+.row-badge-container {
+    margin-bottom: 6px;
+    width: 100px; /* Fixed width so they line up */
+}
+
+.cat-select {
+    appearance: none; /* Remove default OS styling */
+    -webkit-appearance: none;
+    font-size: 0.65rem; 
+    padding: 4px 0; 
+    border-radius: 4px; 
+    border: 1px solid currentColor; /* Use the color set by JS */
+    font-weight: 800; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center; 
+    width: 100%;
+    display: block;
+    /* Remove default dropdown arrow image if it conflicts, or keep simple */
+    background-image: none !important; 
+    background-color: transparent; /* JS adds the opacity color */
+}
+.cat-select:hover {
+    filter: brightness(1.2);
+}
+
+/* Fix Input sizing in rows */
+.bill-input.name-input {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* --- COST BREAKDOWN BAR --- */
+.viz-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Visualization */
+.fat-bar-track { width: 100%; height: 40px; background: #333; border-radius: 6px; overflow: hidden; display: flex; border: 1px solid #444; margin-bottom: 10px; }
+.seg { height: 100%; transition: width 0.4s ease; }
+
+.viz-grid { margin-top: 15px; display: grid; gap: 8px; }
+.viz-row { display: grid; grid-template-columns: 80px 1fr 70px; align-items: center; gap: 10px; font-size: 0.85rem; }
+.viz-label { text-align: right; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
+.viz-track { background: #222; height: 6px; border-radius: 3px; overflow: hidden; }
+.viz-fill { height: 100%; border-radius: 3px; }
+.viz-val { font-family: var(--font-mono); text-align: right; color: #888; }
+
+/* --- INSIGHTS SCROLL & FOOTER --- */
+.insight-container { 
+    margin-top: auto; 
+    padding-top: 1rem; 
+    border-top: 1px dashed #333; 
+    /* Scroll Logic */
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    padding-right: 5px; /* Space for scrollbar */
+}
+
+/* Custom Scrollbar */
+.insight-container::-webkit-scrollbar { width: 6px; }
+.insight-container::-webkit-scrollbar-track { background: #111; }
+.insight-container::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+.insight-tag { 
+    display: block; 
+    padding: 6px 10px; 
+    border-radius: 4px; 
+    font-size: 0.85rem; 
+    margin-bottom: 5px; 
+    border-left: 3px solid transparent;
+}
+.tag-warn { background: rgba(239, 68, 68, 0.1); color: var(--accent-warn); border-left-color: var(--accent-warn); }
+.tag-good { background: rgba(16, 185, 129, 0.1); color: var(--accent-success); border-left-color: var(--accent-success); }
+
+.insight-footer {
+    font-size: 0.65rem;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* --- VERTICAL MEDICAL STACK (New) --- */
+.med-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.med-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+/* Specific tweaks for the labels inside the stack */
+.med-row label {
+    margin: 0;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+.med-row input {
+    border-bottom: 1px solid #444;
+    padding: 4px 0;
+}
+.med-row input:focus { border-bottom-color: var(--c-health); }
+
+/* Input Benchmarking States (Top Inputs) */
+/* We target the input specifically */
+.input-good { border: 1px solid var(--accent-success) !important; box-shadow: 0 0 5px rgba(16, 185, 129, 0.2); border-radius: 4px;}
+.input-warn { border: 1px solid var(--accent-warn) !important; box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); border-radius: 4px;}
