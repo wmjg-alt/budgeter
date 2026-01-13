@@ -67,4 +67,4 @@ We process raw tax bracket data using `scripts/ingest_tax.py`.
 ## 📦 Deployment
 
 This project is designed for **GitHub Pages**.
-Check it out at: [INSERT LINK HERE]
+Check it out at: https://wmjg-alt.github.io/budgeter/
