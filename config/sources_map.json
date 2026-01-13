@@ -50,7 +50,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Mortgage (Household)"
     },
     "housing_rent": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -72,7 +72,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Electricity Bill"
     },
     "water": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -83,7 +83,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Water & Sewer"
     },
     "car_insurance": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -94,7 +94,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Auto Insurance"
     },
     "health_insurance": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -105,7 +105,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Health Insurance Premium"
     },
     "internet": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -116,7 +116,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Internet & Cable"
     },
     "natural_gas": {
         "file": "billreport_doxoinsights_2025.csv",
@@ -127,7 +127,7 @@
         "frequency": "m",
         "year": "2025",
         "source": "doxo insights report",
-        "description": "Average Monthly Rent (Household)"
+        "description": "Average Monthly Natural Gas/Heating"
     },
     "garbage": {
         "file": "billreport_doxoinsights_2025.csv",

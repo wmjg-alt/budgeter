@@ -18,7 +18,7 @@
     "housing_mortgage": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Mortgage (Household)"
     },
     "housing_rent": {
       "source": "doxo insights report",
@@ -28,32 +28,32 @@
     "electricity": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Electricity Bill"
     },
     "water": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Water & Sewer"
     },
     "car_insurance": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Auto Insurance"
     },
     "health_insurance": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Health Insurance Premium"
     },
     "internet": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Internet & Cable"
     },
     "natural_gas": {
       "source": "doxo insights report",
       "year": "2025",
-      "desc": "Average Monthly Rent (Household)"
+      "desc": "Average Monthly Natural Gas/Heating"
     },
     "garbage": {
       "source": "doxo insights report",
